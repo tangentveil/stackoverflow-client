@@ -100,7 +100,7 @@ const QuestionsDetails = () => {
   };
 
   const location = useLocation();
-  const url = `http://localhost:3000`;
+  const url = `https://stackoverflow-server-9k5a.onrender.com`;
 
   const handleShare = () => {
     copy(url + location.pathname);
