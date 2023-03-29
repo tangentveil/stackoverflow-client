@@ -24,6 +24,8 @@ const QuestionsDetails = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
+  console.log(id)
+
   const questionList = useSelector((state) => state.AskQuestionReducer);
   // var questionList = [
   //   {
