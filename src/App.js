@@ -30,7 +30,7 @@ function App() {
 
   useEffect(() => {
     dispatch(fetchAllQuestions());
-    // dispatch(allPosts());
+    dispatch(allPosts());
     // dispatch(fetchAllUsers())
     // dispatch(setCurrentUser())
   }, [dispatch]);
