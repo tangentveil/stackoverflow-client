@@ -18,8 +18,7 @@ const Rightbar = () => {
     const getuser = async () => {
       try {
         const res = await axios.get(
-          `https://stackoverflow-server-9k5a.onrender.com/community/user/all/user/${id}` ||
-            `http://localhost:5000/community/user/all/user/${id}`
+          `https://stackoverflow-server-9k5a.onrender.com/community/user/all/user/${id}`
         );
         setUsers(res.data);
       } catch (error) {

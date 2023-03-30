@@ -13,7 +13,7 @@ const UsersList = () => {
     const getuser = async () => {
       try {
         const res = await axios.get(
-          `https://stackoverflow-server-9k5a.onrender.com/user/getAllUsers`
+            `https://stackoverflow-server-9k5a.onrender.com/user/getAllUsers`
         );
         setUsers(res.data);
       } catch (error) {
