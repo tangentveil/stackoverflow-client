@@ -12,10 +12,11 @@ const UsersList = () => {
   useEffect(() => {
     const getuser = async () => {
       try {
-        const res = await axios.get(
-          `http://localhost:5000/user/getAllUsers` ||
+        const res =
+          (await axios.get(`http://localhost:5000/user/getAllUsers`)) ||
+          (await axios.get(
             `https://stackoverflow-server-9k5a.onrender.com/user/getAllUsers`
-        );
+          ));
         setUsers(res.data);
       } catch (error) {
         console.log("Some error occured");
