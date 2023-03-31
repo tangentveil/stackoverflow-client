@@ -10,7 +10,6 @@ import moment from "moment";
 import EditProfileForm from "./EditProfileForm";
 import ProfileBio from "./ProfileBio";
 import './UserProfile.css'
-import ProfileLeftbar from "../Community/ProfileLeftSideContainer/ProfileLeftbar";
 import ProfileRightbar from "../Community/ProfileRightsideContainer/ProfileRightbar";
 
 const UserProfile = () => {

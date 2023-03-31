@@ -43,7 +43,7 @@ console.log(userdetails)
           justifyContent: "space-between",
         }}
       >
-        <Link to={`community/profile/${userdetails._id}`}>
+        <Link to={`Users/${userdetails._id}`}>
           <div style={{ display: "flex", alignItems: "center" }}>
             <img
               src={`${image}`}

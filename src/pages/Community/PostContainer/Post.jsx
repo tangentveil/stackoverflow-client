@@ -3,9 +3,6 @@ import "./Post.css";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import image from "../../../assets/71840.jpg";
-import imageIcon from "../../../assets/image-solid.svg";
-import videoIcon from "../../../assets/video-solid.svg";
-import emojiIcon from "../../../assets/face-smile-solid.svg";
 import shareIcon from "../../../assets/share.svg";
 import commentIcon from "../../../assets/comment-solid.svg";
 import LikeIcon from "../../../assets/unlike.svg";
@@ -137,7 +134,6 @@ const Post = ({ post }) => {
       }
     ).then((data) => {
       alert("Your Post was deleted successfully");
-      // window.location.reload(true);
       dispatch(allPosts());
     });
   };
@@ -242,7 +238,18 @@ const Post = ({ post }) => {
         {show === true ? (
           <div style={{ padding: "10px" }}>
             <div style={{ display: "flex", alignItems: "center" }}>
-              <img src={`${image}`} className="PostImage" alt="" />
+              <Link to={`/Users/${userId}`} className="Avatar">
+                <Avatar
+                  backgroundColor="#009dff"
+                  px="10px"
+                  py="16px"
+                  borderRadius="50%"
+                  color="white"
+                  fontSize="14px"
+                >
+                  {users?.result?.name?.charAt(0).toUpperCase()}
+                </Avatar>
+              </Link>
               {/* <p style={{marginLeft:"6px"}}>Suman</p> */}
               <input
                 type="text"
@@ -257,15 +264,18 @@ const Post = ({ post }) => {
             {Comments.map((item) => (
               <div style={{ alignItems: "center" }}>
                 <div style={{ display: "flex", alignItems: "center" }}>
-                  {item.profile === "" ? (
-                    <img
-                      src={`https://images.pexels.com/photos/1126993/pexels-photo-1126993.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1`}
-                      className="PostImage"
-                      alt=""
-                    />
-                  ) : (
-                    <img src={`${image}`} className="PostImage" alt="" />
-                  )}
+                  <Link to={`/Users/${item?._id}`} className="Avatar">
+                    <Avatar
+                      backgroundColor="#009dff"
+                      px="10px"
+                      py="16px"
+                      borderRadius="50%"
+                      color="white"
+                      fontSize="14px"
+                    >
+                      {item?.name?.charAt(0).toUpperCase()}
+                    </Avatar>
+                  </Link>
                   <p style={{ marginLeft: "6px", fontSize: 18, marginTop: 6 }}>
                     {item.name}
                   </p>
@@ -278,17 +288,6 @@ const Post = ({ post }) => {
                   }}
                 >
                   {item.comment}
-                </p>
-                <p
-                  style={{
-                    marginLeft: "55px",
-                    textAlign: "start",
-                    marginTop: -10,
-                    color: "#aaa",
-                    fontSize: 11,
-                  }}
-                >
-                  Reply
                 </p>
               </div>
             ))}

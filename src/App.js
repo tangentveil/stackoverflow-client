@@ -21,6 +21,7 @@ import Chat from "./pages/ChatBot/Chat";
 import Payment from "./pages/Payment/Payment";
 import Community from "./pages/Community/Community";
 import Profile from "./pages/Community/Profile/Profile";
+import { setCurrentUser } from "./actions/currentUser";
 
 
 function App() {
@@ -44,7 +45,7 @@ function App() {
           <Route path="/" element={<Home />}></Route>
           <Route path="/Auth" element={<Auth />}></Route>
           <Route path="/Questions" element={<Questions />}></Route>
-          <Route path="/AskQuestion/:id" element={<AskQuestion />}></Route>
+          <Route path="/AskQuestion" element={<AskQuestion />}></Route>
           <Route path="/Questions/:id" element={<DisplayQuestion />}></Route>
           <Route path="/Tags" element={<Tags />}></Route>
           <Route path="/Users" element={<Users />}></Route>
@@ -52,7 +53,7 @@ function App() {
           <Route path="/chat" element={<Chat />}></Route>
           <Route path="/payment" element={<Payment />}></Route>
           <Route path="/community" element={<Community />}></Route>
-          <Route path="/community/profile/:id" element={<Profile />}></Route>
+          <Route path="/Users/:id" element={<UserProfile />}></Route>
         </Routes>
       </Router>
     </div>

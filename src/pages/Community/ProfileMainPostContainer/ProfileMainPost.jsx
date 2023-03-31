@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import ContentPost from "../ContentPostContainer/ContentPost";
 import axios from "axios";
-import image from "../../../assets/71840.jpg";
 import "./ProfileMainPost.css";
 import Post from "../ProfilePostContainer/Post";
 import { useParams } from "react-router";

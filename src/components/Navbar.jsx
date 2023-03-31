@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "./Navbar.css";
 import { Link, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
@@ -8,6 +8,8 @@ import Avatar from "../components/Avatar";
 import Button from "../components/Avatar";
 import { setCurrentUser } from "../actions/currentUser";
 import decode from 'jwt-decode'
+import menu from '../assets/bars-solid.svg'
+import LeftSidebar from "./LeftSidebar";
 
 const Navbar = () => {
   // useSelector hook -> to get the user data anywhere in the application from the redux
@@ -40,9 +42,16 @@ const Navbar = () => {
     dispatch(setCurrentUser(JSON.parse(localStorage.getItem("Profile"))));
   }, [dispatch]);
 
+  const [show, setShow] = useState(false);
+
+  const handleCLick = (e) =>{
+   setShow(true);
+  }
+
   return (
     <nav className="main-nav">
       <div className="navbar">
+          <img src={menu} width={20} onClick={handleCLick} alt="" />
         <Link to="/" className="nav-item nav-logo">
           <img src={logo} alt="logo" width={170} />
         </Link>

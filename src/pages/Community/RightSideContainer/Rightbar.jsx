@@ -6,7 +6,6 @@ import Follow from "./Follow";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router";
 
-import Explore from "./Explore";
 
 const Rightbar = () => {
   const user = useSelector((state) => state.currentUserReducer);
