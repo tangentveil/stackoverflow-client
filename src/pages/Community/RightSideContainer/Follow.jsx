@@ -6,7 +6,7 @@ import image from '../../../assets/71840.jpg'
 import { useSelector } from "react-redux";
 
 const Follow = ({ userdetails }) => {
-console.log(userdetails)
+// console.log(userdetails)
   const user = useSelector((state) => state.currentUserReducer);
   const id = user?.result?._id;
 

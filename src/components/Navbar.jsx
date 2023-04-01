@@ -16,7 +16,7 @@ const Navbar = () => {
   // currentUserReducer -> from reducers
   // setCurrentUser(actions) -> currentUserReducer(redeucers) -> useSelector
 
-  var User = useSelector((state) => state.currentUserReducer);
+  const User = useSelector((state) => state.currentUserReducer);
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -24,8 +24,8 @@ const Navbar = () => {
   
   const handleLogout = () => {
     dispatch({ type: "LOGOUT" });
-    navigate("/");
     dispatch(setCurrentUser(null));
+    navigate("/");
   };
   
   // rendering on every refresh, so user icon won't disappear

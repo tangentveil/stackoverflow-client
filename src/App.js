@@ -53,7 +53,7 @@ function App() {
           <Route path="/chat" element={<Chat />}></Route>
           <Route path="/payment" element={<Payment />}></Route>
           <Route path="/community" element={<Community />}></Route>
-          <Route path="/Users/:id" element={<UserProfile />}></Route>
+          {/* <Route path="/Users/:id" element={<UserProfile />}></Route> */}
         </Routes>
       </Router>
     </div>

@@ -1,8 +1,8 @@
 import axios from "axios";
 
 const API = axios.create({
-  // baseURL: "https://stackoverflow-server-9k5a.onrender.com",
-  baseURL: "http://localhost:5000",
+  baseURL: "https://stackoverflow-server-9k5a.onrender.com",
+  // baseURL: "http://localhost:5000",
 });
 
 
@@ -45,3 +45,5 @@ export const fetchAllUsers = () => API.get('/user/getAllUsers')
 export const UpdateProfile = (id, updateData) => API.patch(`/user/update/${id}`, updateData)
 
 export const AllPosts = () => API.get("/community/posts/AllPosts");
+
+export const UserPosts = (id) => API.get(`/community/posts/get/post/${id}`);

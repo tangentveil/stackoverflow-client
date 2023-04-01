@@ -14,6 +14,7 @@ import { Link } from "react-router-dom";
 import copy from "copy-to-clipboard";
 import Avatar from "../../../components/Avatar";
 import { allPosts } from "../../../actions/posts";
+import { userPosts } from "../../../actions/userPosts";
 
 const Post = ({ post }) => {
   const users = useSelector((state) => state.currentUserReducer);
@@ -144,7 +145,7 @@ const Post = ({ post }) => {
     <div className="PostContainer">
       <div className="SubPostContainer">
         <div className="post-heading">
-          <Link to={`/Users/${post?._id}`} className="Avatar">
+          <Link to={`/Users/${post._id}`} className="Avatar">
             <Avatar
               backgroundColor="#009dff"
               px="10px"

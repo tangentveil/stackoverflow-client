@@ -14,6 +14,7 @@ import { useDispatch, useSelector } from "react-redux";
 import Avatar from "../../../components/Avatar";
 import { Link } from "react-router-dom";
 import { allPosts } from "../../../actions/posts";
+import { userPosts } from "../../../actions/userPosts";
 
 const Post = ({ detail }) => {
   const users = useSelector((state) => state.currentUserReducer);
@@ -121,7 +122,7 @@ const Post = ({ detail }) => {
     ).then((data) => {
       alert("Your Post was deleted successfully");
       // window.location.reload(true);
-      dispatch(allPosts());
+      dispatch(userPosts(detail._id));
     });
   };
 

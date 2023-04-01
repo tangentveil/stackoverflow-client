@@ -7,17 +7,18 @@ import { useSelector } from "react-redux";
 import ProfileRightbar from "../Community/ProfileRightsideContainer/ProfileRightbar";
 
 const ProfileBio = ({ currentProfile }) => {
-  const { id } = useParams();
-  // console.log(id);
+  // const { id } = useParams();
+  // console.log(currentProfile._id)
+  const id = currentProfile?._id;
   const user = useSelector((state) => state.currentUserReducer);
   const userId = user?.result?._id;
   const token = user?.token;
 
-  // console.log(token)
+  console.log(token);
 
-  const [Follow, setUnFollow] = useState([
-    user?.result?.Following.includes(id) ? "Unfollow" : "Follow",
-  ]);
+  const [Follow, setUnFollow] = useState(
+    user?.result?.Following.includes(id) ? "Unfollow" : "Follow"
+  );
 
   let username = user?.result?.name;
 
