@@ -25,11 +25,14 @@ const Post = ({ post }) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
+    dispatch(userPosts(post._id));
+  }, [dispatch]);
+
+  useEffect(() => {
     const getuser = async () => {
       try {
         const res = await axios.get(
-          `http://localhost:5000/community/user/post/user/details/${post.user}` ||
-            `https://stackoverflow-server-9k5a.onrender.com/community/user/post/user/details/${post.user}`
+          `https://stackoverflow-server-9k5a.onrender.com/community/user/post/user/details/${post.user}`
         );
         setUser(res.data);
       } catch (error) {
@@ -52,8 +55,7 @@ const Post = ({ post }) => {
     if (users) {
       if (Like == LikeIcon) {
         await fetch(
-          `http://localhost:5000/community/posts/${post._id}/like` ||
-            `https://stackoverflow-server-9k5a.onrender.com/community/posts/${post._id}/like`,
+          `https://stackoverflow-server-9k5a.onrender.com/community/posts/${post._id}/like`,
           {
             method: "PUT",
             headers: { "Content-Type": "application/Json", token: token },
@@ -63,8 +65,7 @@ const Post = ({ post }) => {
         setCount(count + 1);
       } else {
         await fetch(
-          `http://localhost:5000/community/posts/${post._id}/dislike` ||
-            `https://stackoverflow-server-9k5a.onrender.com/community/posts/${post._id}/dislike`,
+          `https://stackoverflow-server-9k5a.onrender.com/community/posts/${post._id}/dislike`,
           {
             method: "PUT",
             headers: { "Content-Type": "application/Json", token: token },
@@ -90,8 +91,7 @@ const Post = ({ post }) => {
       };
 
       await fetch(
-        `http://localhost:5000/community/posts/comment/post` ||
-          `https://stackoverflow-server-9k5a.onrender.com/community/posts/comment/post`,
+        `https://stackoverflow-server-9k5a.onrender.com/community/posts/comment/post`,
         {
           method: "PUT",
           headers: { "Content-Type": "application/Json", token: token },
@@ -128,8 +128,7 @@ const Post = ({ post }) => {
 
   const handleDelete = async () => {
     await fetch(
-      `http://localhost:5000/community/posts/delete/post/${post._id}` ||
-        `https://stackoverflow-server-9k5a.onrender.com/community/posts/delete/post/${post._id}`,
+      `https://stackoverflow-server-9k5a.onrender.com/community/posts/delete/post/${post._id}`,
       {
         method: "DELETE",
       }

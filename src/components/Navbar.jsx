@@ -11,7 +11,9 @@ import decode from 'jwt-decode'
 import menu from '../assets/bars-solid.svg'
 import LeftSidebar from "./LeftSidebar";
 
-const Navbar = () => {
+
+
+const Navbar = (props) => {
   // useSelector hook -> to get the user data anywhere in the application from the redux
   // currentUserReducer -> from reducers
   // setCurrentUser(actions) -> currentUserReducer(redeucers) -> useSelector
@@ -42,16 +44,22 @@ const Navbar = () => {
     dispatch(setCurrentUser(JSON.parse(localStorage.getItem("Profile"))));
   }, [dispatch]);
 
-  const [show, setShow] = useState(false);
+  const [sidebar, setSidebar] = useState(false)
 
-  const handleCLick = (e) =>{
-   setShow(true);
+  useEffect(() => {
+    props.side(sidebar);
+  }, [sidebar]);
+
+  const handleClick = () => {
+    if(!sidebar) setSidebar(true);
+    else setSidebar(false)
   }
 
+  
   return (
     <nav className="main-nav">
       <div className="navbar">
-          <img src={menu} width={20} onClick={handleCLick} alt="" />
+          <img src={menu} width={20} onClick={handleClick} alt="" />
         <Link to="/" className="nav-item nav-logo">
           <img src={logo} alt="logo" width={170} />
         </Link>

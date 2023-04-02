@@ -20,8 +20,6 @@ import UserProfile from "./pages/UserProfile/UserProfile";
 import Chat from "./pages/ChatBot/Chat";
 import Payment from "./pages/Payment/Payment";
 import Community from "./pages/Community/Community";
-import Profile from "./pages/Community/Profile/Profile";
-import { setCurrentUser } from "./actions/currentUser";
 
 
 function App() {
@@ -36,13 +34,18 @@ function App() {
     // dispatch(setCurrentUser())
   }, [dispatch]);
 
+  const [sidebar, setSidebar] = useState(false);
+
+  const side = (data) => {
+    setSidebar(data);
+  }
 
   return (
     <div className="App">
       <Router>
-        <Navbar />
+        <Navbar side={side} />
         <Routes>
-          <Route path="/" element={<Home />}></Route>
+          <Route path="/" element={<Home sidebar={sidebar} />}></Route>
           <Route path="/Auth" element={<Auth />}></Route>
           <Route path="/Questions" element={<Questions />}></Route>
           <Route path="/AskQuestion" element={<AskQuestion />}></Route>
