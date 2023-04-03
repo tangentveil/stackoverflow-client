@@ -7,12 +7,10 @@ import search from "../assets/search.svg";
 import Avatar from "../components/Avatar";
 import Button from "../components/Avatar";
 import { setCurrentUser } from "../actions/currentUser";
-import decode from 'jwt-decode'
-import menu from '../assets/bars-solid.svg'
+import decode from "jwt-decode";
+import menu from "../assets/bars-solid.svg";
 import { NavLink } from "react-router-dom";
 import Globe from "../assets/Globe.svg";
-
-
 
 const Navbar = () => {
   // useSelector hook -> to get the user data anywhere in the application from the redux
@@ -24,45 +22,39 @@ const Navbar = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  
   const handleLogout = () => {
     dispatch({ type: "LOGOUT" });
     dispatch(setCurrentUser(null));
     navigate("/");
   };
-  
+
   // rendering on every refresh, so user icon won't disappear
   useEffect(() => {
-
     // auto logout in 1 hour
-    const token = User?.token
-    if(token){
-      const decodedToken = decode(token)
-      if(decodedToken.exp * 1000 < new Date().getTime()){
-        handleLogout()
+    const token = User?.token;
+    if (token) {
+      const decodedToken = decode(token);
+      if (decodedToken.exp * 1000 < new Date().getTime()) {
+        handleLogout();
       }
     }
     dispatch(setCurrentUser(JSON.parse(localStorage.getItem("Profile"))));
   }, [dispatch]);
 
-  const [sidebar, setSidebar] = useState(false)
+  const [sidebar, setSidebar] = useState(false);
 
-  // useEffect(() => {
-  //   props.side(sidebar);
-  // }, [sidebar]);
 
   const handleClick = () => {
-    if(!sidebar) setSidebar(true);
-    else setSidebar(false)
-  }
+    if (!sidebar) setSidebar(true);
+    else setSidebar(false);
+  };
 
-  
   return (
     <>
       <div>
-      {sidebar ? (
-        ""
-      ) : (
+        {sidebar ? (
+          ""
+        ) : (
           <div className="left-sidebar">
             <nav className="side-nav">
               {/* <img src={menu} width={20} alt="" /> */}
@@ -133,12 +125,18 @@ const Navbar = () => {
               </div>
             </nav>
           </div>
-      )}
+        )}
       </div>
 
       <nav className="main-nav">
         <div className="navbar">
-          <img src={menu} width={20} onClick={handleClick} style={{cursor:"pointer"}} alt="" />
+          <img
+            src={menu}
+            width={20}
+            onClick={handleClick}
+            style={{ cursor: "pointer" }}
+            alt=""
+          />
           <Link to="/" className="nav-item nav-logo">
             <img src={logo} alt="logo" width={170} />
           </Link>
