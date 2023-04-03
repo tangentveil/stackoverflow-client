@@ -4,10 +4,10 @@ import { NavLink } from "react-router-dom";
 import Globe from "../assets/Globe.svg";
 import menu from "../assets/bars-solid.svg";
 
-const LeftSidebar = ({ show }) => {
+const LeftSidebar = ({ sidebar }) => {
   return (
     <>
-      {show ? (
+      {sidebar ? (
         ""
       ) : (
         <div className="home-container-1">

@@ -9,7 +9,7 @@ const Home = ({sidebar}) => {
   return (
     <>
     <div className="home-container-1">
-      {sidebar ? <LeftSidebar></LeftSidebar> : ""}
+      <LeftSidebar sidebar={sidebar}></LeftSidebar>
       <div className="home-container-2">
         <HomeMainbar></HomeMainbar>
         <RightSidebar></RightSidebar>
