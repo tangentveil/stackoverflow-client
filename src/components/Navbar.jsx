@@ -11,6 +11,7 @@ import decode from "jwt-decode";
 import menu from "../assets/bars-solid.svg";
 import { NavLink } from "react-router-dom";
 import Globe from "../assets/Globe.svg";
+import cross from "../assets/xmark-solid.svg";
 
 const Navbar = () => {
   // useSelector hook -> to get the user data anywhere in the application from the redux
@@ -41,20 +42,34 @@ const Navbar = () => {
     dispatch(setCurrentUser(JSON.parse(localStorage.getItem("Profile"))));
   }, [dispatch]);
 
+  // responsive sidebar
   const [sidebar, setSidebar] = useState(false);
-
+  const [sidebarIcon, setSidebarIcon] = useState(menu);
 
   const handleClick = () => {
-    if (!sidebar) setSidebar(true);
-    else setSidebar(false);
+    if (!sidebar) {
+      setSidebar(true);
+      setSidebarIcon(cross);
+    } else {
+      setSidebar(false);
+      setSidebarIcon(menu);
+    }
   };
 
+  const [showPayment, setShowPayment] = useState(false);
+
+  useEffect(() => {
+    if (User) {
+      setShowPayment(true);
+    } else {
+      setShowPayment(false);
+    }
+  }, [User]);
+
   return (
-    <>
+    <div className="header">
       <div>
         {sidebar ? (
-          ""
-        ) : (
           <div className="left-sidebar">
             <nav className="side-nav">
               {/* <img src={menu} width={20} alt="" /> */}
@@ -63,11 +78,13 @@ const Navbar = () => {
                 className="side-nav-links"
                 activeclassname="active"
               >
-                <p>Home</p>
+                <p style={{ marginBottom: "14px", marginTop: "14px" }}>Home</p>
               </NavLink>
               <div className="side-nav-div">
                 <div>
-                  <p>PUBLIC</p>
+                  <p style={{ marginBottom: "14px", marginTop: "14px" }}>
+                    PUBLIC
+                  </p>
                 </div>
                 <NavLink
                   to="/Questions"
@@ -105,14 +122,18 @@ const Navbar = () => {
                   <p style={{ paddingLeft: "10px" }}>Chat Bot</p>
                 </NavLink>
 
-                <NavLink
-                  to="/payment"
-                  className="side-nav-links"
-                  activeclassname="active"
-                  style={{ paddingLeft: "40px" }}
-                >
-                  <p style={{ paddingLeft: "10px" }}>Payment</p>
-                </NavLink>
+                {showPayment ? (
+                  <NavLink
+                    to="/payment"
+                    className="side-nav-links"
+                    activeclassname="active"
+                    style={{ paddingLeft: "40px" }}
+                  >
+                    <p style={{ paddingLeft: "10px" }}>Payment</p>
+                  </NavLink>
+                ) : (
+                  ""
+                )}
 
                 <NavLink
                   to="/community"
@@ -125,13 +146,15 @@ const Navbar = () => {
               </div>
             </nav>
           </div>
+        ) : (
+          <div></div>
         )}
       </div>
 
       <nav className="main-nav">
         <div className="navbar">
           <img
-            src={menu}
+            src={sidebarIcon}
             width={20}
             onClick={handleClick}
             style={{ cursor: "pointer" }}
@@ -183,7 +206,7 @@ const Navbar = () => {
           )}
         </div>
       </nav>
-    </>
+    </div>
   );
 };
 

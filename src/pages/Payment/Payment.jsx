@@ -25,17 +25,7 @@ const Payment = () => {
   //   dispatch(setCurrentUser());
   // },[dispatch])
 
-  var user = useSelector((state) => state.currentUserReducer);
-  const navigate = useNavigate();
-
-  const redirect = () => {
-    alert("login or singin to ask a question");
-    navigate("/Auth");
-  };
-
-  // useEffect(() => {
-  //   navigate("/Auth");
-  // }, []);
+  
 
   const successMessage = () => {
     return (
@@ -62,9 +52,6 @@ const Payment = () => {
 
   return (
     <>
-      {user === null ? (
-        redirect()
-      ) : (
         <div className="home-container-1">
           <div className="home-container-2">
             <div className="container">
@@ -94,7 +81,6 @@ const Payment = () => {
             </div>
           </div>
         </div>
-      )}
     </>
   );
 };

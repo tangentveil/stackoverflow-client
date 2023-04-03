@@ -1,3 +1,8 @@
+.header{
+    position: absolute;
+    z-index: 999;
+}
+
 .main-nav {
     min-height: 50px;
     width: 100%;
@@ -83,6 +88,10 @@
 }
 
 
+.sidebar{
+    z-index: 999;
+    max-height: 100vh;
+}
 
 .left-sidebar {
     transform: translateZ(0);
@@ -92,12 +101,8 @@
     font-size: 13px;
     float: left;
     width: 240px;
-    /* display: none; */
-    z-index: 999;
-}
-
-.left-sidebar .visible {
-    display: block;
+    background-color: #f8f9f9;
+    
 }
 
 .side-nav {
@@ -106,6 +111,8 @@
     position: sticky;
     margin: 50px 0px;
     padding: 40px 0px;
+    /* background-color: #f8f9f9; */
+    max-height: 100vh;
 }
 
 .side-nav-div {
@@ -138,7 +145,7 @@
 }
 
 
-@media only screen and (max-width: 875px) {
+@media only screen and (max-width: 896px) {
     .nav-btn {
         padding: 5px 10px;
     }
