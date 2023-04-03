@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
-import LeftSidebar from "../../components/LeftSidebar";
 import Plans from "./Plans";
 import CheckoutForm from "./CheckoutForm";
 import { Elements } from "@stripe/react-stripe-js";
@@ -67,7 +66,6 @@ const Payment = () => {
         redirect()
       ) : (
         <div className="home-container-1">
-          <LeftSidebar></LeftSidebar>
           <div className="home-container-2">
             <div className="container">
               <div className="py-5 text-center">

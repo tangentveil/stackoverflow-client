@@ -1,6 +1,5 @@
 import React, { useState,useEffect } from "react";
 import axios from "axios";
-import LeftSidebar from "../../components/LeftSidebar";
 import Avatar from "../../components/Avatar";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router";
@@ -45,7 +44,6 @@ const UserProfile = () => {
 
   return (
     <div className="home-container-1">
-      <LeftSidebar></LeftSidebar>
       <div className="home-container-2">
         <section className="user-details-container">
           <div className="user-details">
