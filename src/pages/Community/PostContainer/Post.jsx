@@ -117,9 +117,10 @@ const Post = ({ post }) => {
     }
   };
 
-  // const location = useLocation();
-  // const url = `http://localhost:5000/community/posts/user/post/${post._id}`;
-  const url = `https://stackoverflow-server-9k5a.onrender.com/community/posts/user/post/${post._id}`;
+  const location = useLocation();
+  const url = window.location.href;
+
+  console.log(url)
 
   const handleShare = () => {
     copy(url);
