@@ -184,3 +184,9 @@
         display: none;
     }
 }
+
+@media only screen and (max-width: 399px) {
+    .navbar form {
+        padding: 0px 3px;
+    }
+}
