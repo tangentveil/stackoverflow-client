@@ -109,7 +109,7 @@ const Chat = () => {
       <div className="home-container-1">
         <div className="chat-container">
           <section className="section">
-            <div>
+            <div className="section-div">
               <Toaster toastOptions={{ duration: 4000 }} />
               <div id="recaptcha-container"></div>
               {user || user1 ? (

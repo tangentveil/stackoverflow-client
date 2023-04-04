@@ -87,6 +87,7 @@ const ContentPost = () => {
               dispatch(allPosts());
               dispatch(userPosts(id));
               setImagePre(null);
+              setTitle("");
               setPrgress("");
             });
           });
@@ -139,6 +140,7 @@ const ContentPost = () => {
               dispatch(allPosts());
               dispatch(userPosts(id));
               setVideoPre(null);
+              setTitle("");
               setPrgress("");
             });
           });
@@ -146,8 +148,7 @@ const ContentPost = () => {
       );
     } else {
       fetch(
-        
-          `https://stackoverflow-server-9k5a.onrender.com/community/posts/user/post`,
+        `https://stackoverflow-server-9k5a.onrender.com/community/posts/user/post`,
         {
           method: "POST",
           headers: { "Content-Type": "application/JSON", token: token },
@@ -157,6 +158,7 @@ const ContentPost = () => {
         alert("Your Post was upload successfully");
         dispatch(allPosts());
         dispatch(userPosts(id));
+        setTitle("");
       });
     }
   };
