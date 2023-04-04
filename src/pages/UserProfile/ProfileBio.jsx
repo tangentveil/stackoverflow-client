@@ -167,10 +167,11 @@ const ProfileBio = ({ currentProfile }) => {
           )}
         </div>
 
+        <Rightbar />
+
         <div>
           <ProfileRightbar />
         </div>
-      <Rightbar/>
       </div>
       <Profile currentProfile={currentProfile} />
     </>

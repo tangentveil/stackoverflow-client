@@ -23,14 +23,13 @@ const AskQuestion = () => {
   //   dispatch(setCurrentUser());
   // }, [dispatch]);
 
-
   // useEffect(() => {
   //   if(!user) navigate("/Auth");
   // }, []);
 
   console.log(count);
 
-  const handleSubmit = async(e) => {
+  const handleSubmit = async (e) => {
     // console.log(typeof(questionTitle))
     e.preventDefault();
     if (count > 0) {
@@ -44,8 +43,8 @@ const AskQuestion = () => {
       );
 
       const nOfQuestionPerDay = {
-        nOfQuestionPerDay : count-1,
-      }
+        nOfQuestionPerDay: count - 1,
+      };
 
       await fetch(`http://localhost:5000/user/updateSub/${userId}`, {
         method: "PUT",
@@ -53,6 +52,7 @@ const AskQuestion = () => {
       });
 
       setCount(count - 1);
+      dispatch(setCurrentUser());
     } else {
       alert("Come Back Tomorrow");
     }
