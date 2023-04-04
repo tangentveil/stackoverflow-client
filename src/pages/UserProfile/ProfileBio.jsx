@@ -5,6 +5,7 @@ import axios from "axios";
 import { Link, useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import ProfileRightbar from "../Community/ProfileRightsideContainer/ProfileRightbar";
+import Rightbar from "../Community/RightSideContainer/Rightbar";
 
 const ProfileBio = ({ currentProfile }) => {
   // const { id } = useParams();
@@ -169,6 +170,7 @@ const ProfileBio = ({ currentProfile }) => {
         <div>
           <ProfileRightbar />
         </div>
+      <Rightbar/>
       </div>
       <Profile currentProfile={currentProfile} />
     </>
