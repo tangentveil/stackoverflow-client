@@ -69,11 +69,11 @@ const Chat = () => {
     setLoading(true);
     onCaptchVerify();
 
-    // const appVerifier = window.recaptchaVerifier;
+    const appVerifier = window.recaptchaVerifier;
 
     const formatPh = "+" + ph;
 
-    signInWithPhoneNumber(auth, formatPh)
+    signInWithPhoneNumber(auth, formatPh, appVerifier)
       .then((confirmationResult) => {
         window.confirmationResult = confirmationResult;
         setLoading(false);
