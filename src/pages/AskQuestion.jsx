@@ -50,7 +50,7 @@ const AskQuestion = () => {
     // } else {
     //   alert("Come Back Tomorrow");
     // }
-    navigate("/")
+    // navigate("/")
   };
 
   // console.log(count);
