@@ -23,7 +23,7 @@ const AskQuestion = () => {
     // console.log(typeof(questionTitle))
     e.preventDefault();
     if(!questionTitle) prompt("Please Enter Question Title");
-    if(!questionBody) prompt("Please prvide more information");
+    if(!questionBody) prompt("Please provide more information");
     // if (count > 0) {
       dispatch(
         askQuestion({
