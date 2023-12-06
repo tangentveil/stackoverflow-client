@@ -22,8 +22,8 @@ const AskQuestion = () => {
   const handleSubmit = async (e) => {
     // console.log(typeof(questionTitle))
     e.preventDefault();
-    if(!questionTitle) prompt("Please Enter Question Title");
-    if(!questionBody) prompt("Please provide more information");
+    if(!questionTitle) alert("Please Enter Question Title");
+    if(!questionBody) alert("Please provide more information");
     // if (count > 0) {
       dispatch(
         askQuestion({
@@ -50,6 +50,7 @@ const AskQuestion = () => {
     // } else {
     //   alert("Come Back Tomorrow");
     // }
+    navigate("/")
   };
 
   // console.log(count);
