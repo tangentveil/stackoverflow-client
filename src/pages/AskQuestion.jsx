@@ -31,7 +31,7 @@ const AskQuestion = () => {
           questionBody,
           questionTags,
           userPosted: user.result.name,
-        })
+        }), navigate
       );
 
       // const nOfQuestionPerDay = {
